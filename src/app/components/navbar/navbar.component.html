@@ -6,19 +6,28 @@
                 <a class="nav-link" routerLink="/home">Home</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['protegida']">Protegida</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['precios']">Precios</a>
             </li>
-        </ul>
-        <span class="navbar-text">
-      <button class="btn btn-outline-primary" *ngIf="!auth.loggedIn">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['protegida']" *ngIf="auth.loggedIn">Protegida</a
+        >
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <button
+        class="btn btn-outline-primary"
+        *ngIf="!auth.loggedIn"
+        (click)="auth.login()"
+      >
         LogIn
       </button>
-      <button class="btn btn-outline-danger" *ngIf="auth.loggedIn">
+      <button
+        class="btn btn-outline-danger"
+        *ngIf="auth.loggedIn"
+        (click)="auth.logout()"
+      >
         LogOut
       </button>
     </span>
-    </div>
+  </div>
 </nav>
